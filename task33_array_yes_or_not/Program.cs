@@ -2,34 +2,36 @@
 // 4; массив [6, 7, 19, 345, 3] -> нет
 // -3; массив [6, 7, 19, 345, 3] -> да
 
-int[] FillArray(int[] array)
+int[] FillArrayWithRandom(int[] array)
 {
-    for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(-9,10);
+        array[i] = new Random().Next(-9, 10);
     }
     return array;
 }
 
 int[] array = new int[12];
-array = FillArray(array);
-Console.Write("Ваш массив: ");
-Console.WriteLine(string.Join(", ", array));
-
+FillArrayWithRandom(array);
+Console.Write("Ваш случайный массив: ");
+Console.Write(string.Join(", ", array));
+Console.WriteLine();
 Console.Write("Введите число: ");
-int a = Convert.ToInt32(Console.ReadLine());
-
-for(int i = 0; i < array.Length; i++)
+int number = Convert.ToInt32(Console.ReadLine());
+bool isOk = false;
+for (int i = 0; i < array.Length; i++)
+{
+    if (number == array[i])
     {
-        if (array[i] == a)
-        {
-            Console.WriteLine($"Число {a} присутствует в массиве!!!");
-            break;
-        }
-        else
-        {
-            Console.WriteLine($"Число {a} не присутствует в массиве!!!");
-            break;
-        }
+        isOk = true;
+        break;
     }
-    return;
+}
+if (isOk)
+{
+    Console.Write($"Число {number} присутствует в массиве!!!");
+}
+else
+{
+    Console.Write($"Число {number} не присутствует в массиве!!!");
+}
