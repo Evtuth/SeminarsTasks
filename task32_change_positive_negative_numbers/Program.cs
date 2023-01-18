@@ -4,25 +4,18 @@
 
 int[] FillArray(int[] array)
 {
-    for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(-9,10);
+        array[i] = new Random().Next(-9, 10);
     }
     return array;
 }
 
 int[] ChangeArray(int[] array)
 {
-    for(int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        if( array[i] > 0)
-        {
-            array[i] = -array[i];
-        }
-        else
-        {
-            array[i] = array[i] - array[i]*2;
-        }
+        array[i] *= -1;
     }
     return array;
 }
